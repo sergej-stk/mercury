@@ -1,0 +1,52 @@
+version: 2
+updates:
+  - package-ecosystem: maven
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: '09:00'
+      timezone: Europe/Berlin
+    open-pull-requests-limit: 10
+    reviewers:
+      - sergej-stk
+    assignees:
+      - sergej-stk
+    labels:
+      - dependencies
+      - java
+      - maven
+    commit-message:
+      prefix: chore
+      prefix-development: chore-dev
+      include: scope
+    groups:
+      spring-boot:
+        patterns:
+          - org.springframework.boot*
+    rebase-strategy: auto
+    pull-request-branch-name:
+      separator: '-'
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: '09:00'
+      timezone: Europe/Berlin
+    open-pull-requests-limit: 5
+    reviewers:
+      - sergej-stk
+    assignees:
+      - sergej-stk
+    labels:
+      - dependencies
+      - github_actions
+      - ci-cd
+    commit-message:
+      prefix: chore
+      prefix-development: chore-dev
+      include: scope
+    rebase-strategy: auto
+    pull-request-branch-name:
+      separator: '-'
