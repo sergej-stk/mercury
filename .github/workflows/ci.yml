@@ -8,13 +8,16 @@ on:
 
 jobs:
   build_test_format:
-    name: Build, Test & Check Format Separately
-
+    name: Build, Test & Format
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
 
       - name: Set up JDK 21
         uses: actions/setup-java@v4
@@ -26,8 +29,11 @@ jobs:
       - name: Build Project
         run: mvn -B compile --file pom.xml
 
-      #- name: Run Tests
-      #  run: mvn -B test --file pom.xml
+      # - name: Run Tests
+      #   run: mvn -B test --file pom.xml
 
-      - name: Check Code Formatting (Using Spotless)
-        run: mvn -B spotless:check --file pom.xml
+      - name: Format Java Code
+        uses: axel-op/googlejavaformat-action@v3
+        with:
+          args: "--replace --aosp ."
+          commit-message: "style: auto-format Java code"
