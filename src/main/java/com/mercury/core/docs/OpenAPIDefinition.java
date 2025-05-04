@@ -68,6 +68,6 @@ import org.springframework.context.annotation.Configuration;
         in = SecuritySchemeIn.HEADER,
         description =
                 "Bearer Authentication with JWT. Include the token in the 'Authorization' header as"
-                    + " 'Bearer {token}'.",
+                        + " 'Bearer {token}'.",
         paramName = "Authorization")
 public class OpenAPIDefinition {}
