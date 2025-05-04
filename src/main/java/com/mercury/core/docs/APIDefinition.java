@@ -74,9 +74,6 @@ import org.springframework.context.annotation.Configuration;
 public class APIDefinition {
     @Bean
     public GroupedOpenApi apiV1() {
-        return GroupedOpenApi.builder()
-                .group("v1")
-                .pathsToMatch("/v1/**")
-                .build();
+        return GroupedOpenApi.builder().group("v1").pathsToMatch("/v1/**").build();
     }
 }
