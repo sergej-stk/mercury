@@ -8,6 +8,7 @@ import jakarta.validation.constraints.Size;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.NaturalId;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -27,7 +28,12 @@ public class User {
     private UUID id;
 
     @NotNull
-    @Column(name = "publicId", columnDefinition = "UUID", nullable = false, unique = true, updatable = false)
+    @Column(
+            name = "publicId",
+            columnDefinition = "UUID",
+            nullable = false,
+            unique = true,
+            updatable = false)
     private UUID publicId = UUID.randomUUID();
 
     @NotBlank

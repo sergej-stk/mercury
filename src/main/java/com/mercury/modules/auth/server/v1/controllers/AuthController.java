@@ -1,6 +1,7 @@
 package com.mercury.modules.auth.server.v1.controllers;
 
 import com.mercury.modules.users.shared.dto.UserDTO;
+
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 import org.springframework.http.ResponseEntity;
