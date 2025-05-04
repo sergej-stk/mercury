@@ -27,7 +27,7 @@ public class CreateUserDTO {
             title = "Username",
             description =
                     "The desired unique username for the new user. Must be between 3 and 50"
-                        + " characters.",
+                            + " characters.",
             example = "new.user",
             requiredMode = Schema.RequiredMode.REQUIRED,
             minLength = 3,
@@ -41,7 +41,7 @@ public class CreateUserDTO {
             title = "Email Address",
             description =
                     "The desired unique email address for the new user. Must be a valid email"
-                        + " format and max 100 characters.",
+                            + " format and max 100 characters.",
             example = "new.user@example.com",
             requiredMode = Schema.RequiredMode.REQUIRED,
             format = "email",
