@@ -2,8 +2,11 @@ package com.mercury.modules.auth.server.v1.controllers;
 
 import com.mercury.modules.users.shared.dto.CreateUserDTO;
 import com.mercury.modules.users.shared.dto.UserDTO;
+
 import io.swagger.v3.oas.annotations.tags.Tag;
+
 import jakarta.validation.Valid;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
