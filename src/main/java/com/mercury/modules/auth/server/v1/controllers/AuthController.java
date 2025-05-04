@@ -1,5 +1,6 @@
-package com.mercury.modules.auth.controllers.v1;
+package com.mercury.modules.auth.server.v1.controllers;
 
+import com.mercury.modules.users.shared.dto.UserDTO;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 import org.springframework.http.ResponseEntity;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Tag(name = "Authentication")
 public class AuthController {
     @PostMapping("/register")
-    public ResponseEntity<String> registerUser() {
-        return ResponseEntity.ok("Registered User");
+    public ResponseEntity<UserDTO> registerUser() {
+        return ResponseEntity.ok(new UserDTO());
     }
 }

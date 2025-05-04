@@ -3,8 +3,11 @@ package com.mercury.modules.users.dbo.entities;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.NaturalId;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -13,24 +16,25 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
-@Table(
-        name = "users",
-        uniqueConstraints = {
-            @UniqueConstraint(columnNames = "publicId"),
-            @UniqueConstraint(columnNames = "username"),
-            @UniqueConstraint(columnNames = "email"),
-        })
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "users")
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(columnDefinition = "UUID", updatable = false, nullable = false)
     private UUID id;
 
+    @NotNull
+    @Column(name = "publicId", columnDefinition = "UUID", nullable = false, unique = true, updatable = false)
+    private UUID publicId = UUID.randomUUID();
+
     @NotBlank
-    @Size(min = 8, max = 20)
-    @Column(nullable = false, unique = true, length = 20)
+    @Size(min = 6, max = 25)
     @NaturalId
-    private String publicId;
+    @Column(name = "displayId", nullable = false, unique = true, length = 25, updatable = false)
+    private String displayId;
 
     @CreationTimestamp
     @Column(nullable = false, updatable = false)
