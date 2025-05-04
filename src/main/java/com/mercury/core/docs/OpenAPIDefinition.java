@@ -1,7 +1,6 @@
 package com.mercury.core.docs;
 
 import io.swagger.v3.oas.annotations.ExternalDocumentation;
-import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeIn;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
 import io.swagger.v3.oas.annotations.info.Contact;
@@ -15,7 +14,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@OpenAPIDefinition(
+@io.swagger.v3.oas.annotations.OpenAPIDefinition(
         info =
                 @Info(
                         title = "Mercury API",
@@ -71,4 +70,4 @@ import org.springframework.context.annotation.Configuration;
                 "Bearer Authentication with JWT. Include the token in the 'Authorization' header as"
                     + " 'Bearer {token}'.",
         paramName = "Authorization")
-public class OpenAPIConfig {}
+public class OpenAPIDefinition {}
