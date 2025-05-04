@@ -7,11 +7,12 @@ import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
 import io.swagger.v3.oas.annotations.info.Contact;
 import io.swagger.v3.oas.annotations.info.Info;
 import io.swagger.v3.oas.annotations.info.License;
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import io.swagger.v3.oas.annotations.servers.Server;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
+import org.springdoc.core.models.GroupedOpenApi;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
@@ -51,7 +52,6 @@ import org.springframework.context.annotation.Configuration;
             @Server(url = "http://localhost:8080", description = "Development Server"),
             @Server(url = "https://api.mercury.example.com", description = "Production Server")
         },
-        security = @SecurityRequirement(name = "bearerAuth"),
         tags = {
             @Tag(name = "Authentication", description = "Authentication and token management."),
             @Tag(name = "Users", description = "Operations related to user accounts."),
@@ -71,4 +71,12 @@ import org.springframework.context.annotation.Configuration;
                 "Bearer Authentication with JWT. Include the token in the 'Authorization' header as"
                         + " 'Bearer {token}'.",
         paramName = "Authorization")
-public class APIDefinition {}
+public class APIDefinition {
+    @Bean
+    public GroupedOpenApi apiV1() {
+        return GroupedOpenApi.builder()
+                .group("v1")
+                .pathsToMatch("/v1/**")
+                .build();
+    }
+}
