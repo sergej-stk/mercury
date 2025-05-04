@@ -56,16 +56,24 @@ import org.springframework.context.annotation.Configuration;
             @Tag(
                     name = "Authentication",
                     description = "Authentication and token management.",
-                externalDocs = @ExternalDocumentation(
-                        description = "Find out more",
-                        url = "https://github.com/sergej-stk/mercury")
-            ),
-            @Tag(name = "Users", description = "Operations related to user accounts.",                 externalDocs = @ExternalDocumentation(
-                    description = "Find out more",
-                    url = "https://github.com/sergej-stk/mercury")),
-            @Tag(name = "Core", description = "General-purpose endpoints and features.",                 externalDocs = @ExternalDocumentation(
-                    description = "Find out more",
-                    url = "https://github.com/sergej-stk/mercury"))
+                    externalDocs =
+                            @ExternalDocumentation(
+                                    description = "Find out more",
+                                    url = "https://github.com/sergej-stk/mercury")),
+            @Tag(
+                    name = "Users",
+                    description = "Operations related to user accounts.",
+                    externalDocs =
+                            @ExternalDocumentation(
+                                    description = "Find out more",
+                                    url = "https://github.com/sergej-stk/mercury")),
+            @Tag(
+                    name = "Core",
+                    description = "General-purpose endpoints and features.",
+                    externalDocs =
+                            @ExternalDocumentation(
+                                    description = "Find out more",
+                                    url = "https://github.com/sergej-stk/mercury"))
         },
         externalDocs =
                 @ExternalDocumentation(
