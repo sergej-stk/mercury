@@ -38,7 +38,7 @@ public class UserDTO {
             title = "User Display ID",
             description =
                     "A user-friendly, human-readable, unique identifier intended for display to"
-                        + " end-users or for easy reference. Format: String, 6-25 characters.",
+                            + " end-users or for easy reference. Format: String, 6-25 characters.",
             example = "USR-GHT7Y2",
             requiredMode = Schema.RequiredMode.REQUIRED,
             accessMode = Schema.AccessMode.READ_ONLY)
@@ -49,7 +49,7 @@ public class UserDTO {
             title = "Username",
             description =
                     "The user's unique username, used for login and identification within the"
-                        + " application. Length: 3-50 characters.",
+                            + " application. Length: 3-50 characters.",
             example = "john.doe",
             requiredMode = Schema.RequiredMode.REQUIRED,
             accessMode = Schema.AccessMode.READ_ONLY)
@@ -60,7 +60,7 @@ public class UserDTO {
             title = "Email Address",
             description =
                     "The user's unique email address, used for communication and potentially login"
-                        + " or password recovery. Max length: 100 characters.",
+                            + " or password recovery. Max length: 100 characters.",
             example = "john.doe@example.com",
             requiredMode = Schema.RequiredMode.REQUIRED,
             format = "email",
