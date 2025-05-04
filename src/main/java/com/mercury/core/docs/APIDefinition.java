@@ -53,9 +53,19 @@ import org.springframework.context.annotation.Configuration;
             @Server(url = "https://api.mercury.example.com", description = "Production Server")
         },
         tags = {
-            @Tag(name = "Authentication", description = "Authentication and token management."),
-            @Tag(name = "Users", description = "Operations related to user accounts."),
-            @Tag(name = "Core", description = "General-purpose endpoints and features.")
+            @Tag(
+                    name = "Authentication",
+                    description = "Authentication and token management.",
+                externalDocs = @ExternalDocumentation(
+                        description = "Find out more",
+                        url = "https://github.com/sergej-stk/mercury")
+            ),
+            @Tag(name = "Users", description = "Operations related to user accounts.",                 externalDocs = @ExternalDocumentation(
+                    description = "Find out more",
+                    url = "https://github.com/sergej-stk/mercury")),
+            @Tag(name = "Core", description = "General-purpose endpoints and features.",                 externalDocs = @ExternalDocumentation(
+                    description = "Find out more",
+                    url = "https://github.com/sergej-stk/mercury"))
         },
         externalDocs =
                 @ExternalDocumentation(
