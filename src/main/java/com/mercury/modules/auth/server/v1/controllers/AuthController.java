@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/v1")
+@RequestMapping("/v1/auth")
 @Tag(name = "Authentication")
 public class AuthController {
     @PostMapping("/register")
