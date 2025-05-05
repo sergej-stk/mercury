@@ -7,8 +7,10 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import lombok.experimental.Accessors;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.NaturalId;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -17,6 +19,8 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
+@Data
+@Accessors(chain = true)
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "users")
