@@ -33,7 +33,7 @@ jobs:
       #   run: mvn -B test --file pom.xml
 
       - name: Format Java Code
-        uses: axel-op/googlejavaformat-action@v3
+        uses: axel-op/googlejavaformat-action@v4
         with:
           args: "--replace --aosp ."
           commit-message: "style: auto-format Java code"
