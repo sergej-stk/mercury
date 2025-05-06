@@ -1,13 +1,13 @@
 <br />
 <div align="center">
   <a href="https://github.com/sergej-stk/mercury">
-    <img src="assets/logo.png" alt="Logo" width="100" height="100">
+    <img src="assets/logo.png" alt="Logo" width="200" height="200">
   </a>
 
 <h3 align="center">Mercury API</h3>
 
   <p align="center">
-    API for the Mercury platform, focusing on employee management, HR processes, and workflows.
+    API for the Mercury platform, focusing on employee management and HR processes.
     <br />
     <a href="https://mercury.sergejsteinsiek.com/"><strong>Explore the docs »</strong></a>
     <br />
