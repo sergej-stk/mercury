@@ -30,7 +30,7 @@ jobs:
         run: mvn -B compile --file pom.xml
 
       - name: Run Tests
-        run: mvn -B test --file pom.xml -X
+        run: mvn -B test --file pom.xml
 
       - name: Check Code Formatting (Spotless)
         run: mvn spotless:check -B --file pom.xml
