@@ -79,15 +79,11 @@ public class UserService {
      * Validates that the given username does not already exist in the repository.
      *
      * @param username The username to validate.
-     * @throws RuntimeException (or ideally a specific exception like
-     *     UsernameAlreadyExistsException) if the username is already taken.
      */
     private void validateUsernameUniqueness(String username) {
         log.debug("Validating username uniqueness for: {}", username);
-        if (userRepository.existsByUsername(username)) {
-            log.error("Validation failed: Username '{}' already exists.", username);
+        if (userRepository.existsByUsername(username))
             throw new UsernameAlreadyExistsException();
-        }
         log.debug("Username '{}' is unique.", username);
     }
 
@@ -95,15 +91,11 @@ public class UserService {
      * Validates that the given email does not already exist in the repository.
      *
      * @param email The email address to validate.
-     * @throws RuntimeException (or ideally a specific exception like EmailAlreadyExistsException)
-     *     if the email is already registered.
      */
     private void validateEmailUniqueness(String email) {
         log.debug("Validating email uniqueness for user.");
-        if (userRepository.existsByEmail(email)) {
-            log.error("Validation failed: Email already exists for the provided user.");
+        if (userRepository.existsByEmail(email))
             throw new EmailAlreadyExistsException();
-        }
         log.debug("Email is unique for the provided user.");
     }
 

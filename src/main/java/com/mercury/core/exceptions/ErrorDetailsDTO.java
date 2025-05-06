@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.time.OffsetDateTime;
+import java.util.UUID;
 
 @Data
 @NoArgsConstructor
@@ -44,7 +45,7 @@ public final class ErrorDetailsDTO {
             description =
                     "A unique, application-specific, machine-readable code identifying the type of"
                         + " error. Useful for programmatic error handling by clients.",
-            example = "U-12345")
+            example = "E-USER-0002")
     private String errorCode;
 
     @Schema(
@@ -60,4 +61,13 @@ public final class ErrorDetailsDTO {
             description = "The API endpoint (path) that produced this error response.",
             example = "/api/v1/items/123")
     private String path;
+
+    @Schema(
+            name = "debugId",
+            title = "Debug ID",
+            description =
+                    "A unique identifier (UUID) assigned to this specific error instance, useful for"
+                            + " debugging and tracing purposes (e.g., correlating with logs).",
+            example = "f81d4fae-7dec-11d0-a765-00a0c91e6bf6")
+    private UUID debugId;
 }

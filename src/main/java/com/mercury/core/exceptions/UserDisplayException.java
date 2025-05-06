@@ -6,10 +6,9 @@ import lombok.Setter;
 @Getter
 @Setter
 public class UserDisplayException extends RuntimeException {
-    private final ErrorDetailsDTO details;
+    private final ErrorCode code;
 
-    public UserDisplayException(int status, String message, String errorCode) {
-        details =
-                new ErrorDetailsDTO().setStatus(status).setMessage(message).setErrorCode(errorCode);
+    public UserDisplayException(ErrorCode code) {
+        this.code = code;
     }
 }

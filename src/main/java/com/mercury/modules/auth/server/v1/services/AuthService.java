@@ -18,6 +18,14 @@ import org.springframework.stereotype.Service;
 public class AuthService {
     private final UserService userService;
 
+    /**
+     * Registers a new user based on the provided user data.
+     * It delegates the user creation to the {@link UserService} and
+     * returns the created user's data within a {@link ResponseEntity}.
+     *
+     * @param createUserDTO Data Transfer Object containing the details for the new user. Must be valid.
+     * @return A {@link ResponseEntity} with status {@link HttpStatus#CREATED} and the created {@link UserDTO} in the body.
+     */
     public ResponseEntity<UserDTO> registerUser(@Valid CreateUserDTO createUserDTO) {
         var user = userService.createUser(createUserDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(UserUtils.convertUserToUserDTO(user));
