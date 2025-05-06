@@ -48,7 +48,7 @@ public class GlobalExceptionHandler {
 
         log.error(
                 "Handling UserDisplayException: Status='{}', Path='{}', ErrorCode='{}',"
-                    + " DebugID='{}'",
+                        + " DebugID='{}'",
                 errorCode.getStatus(),
                 path,
                 errorCode.getErrorCode(),
@@ -76,7 +76,7 @@ public class GlobalExceptionHandler {
 
         log.error(
                 "Handling MethodArgumentNotValidException: Status='{}', Path='{}', ErrorCode='{}',"
-                    + " DebugID='{}'",
+                        + " DebugID='{}'",
                 errorCode.getStatus(),
                 path,
                 errorCode.getErrorCode(),

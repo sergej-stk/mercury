@@ -67,7 +67,7 @@ public final class ErrorDetailsDTO {
             title = "Debug ID",
             description =
                     "A unique identifier (UUID) assigned to this specific error instance, useful"
-                        + " for debugging and tracing purposes (e.g., correlating with logs).",
+                            + " for debugging and tracing purposes (e.g., correlating with logs).",
             example = "f81d4fae-7dec-11d0-a765-00a0c91e6bf6")
     private UUID debugId;
 }
