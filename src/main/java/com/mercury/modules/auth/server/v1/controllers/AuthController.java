@@ -30,39 +30,36 @@ public class AuthController {
 
     @Operation(
             summary = "Register a new user",
-            description = "Creates a new user account based on the provided details in the request body."
-    )
-    @ApiResponses(value = {
-            @ApiResponse(
-                    responseCode = "201" ,
-                    description = "User successfully registered",
-                    content = @Content(
-                            mediaType = MediaType.APPLICATION_JSON_VALUE,
-                            schema = @Schema(implementation = UserDTO.class)
-                    )
-            ),
-            @ApiResponse(
-                    responseCode = "400",
-                    description = "Invalid input data provided (e.g., validation errors)",
-                    content = @Content(
-                            mediaType = MediaType.APPLICATION_JSON_VALUE,
-                            schema = @Schema(implementation = ErrorDetailsDTO.class)
-                    )
-            ),
-            @ApiResponse(
-                    responseCode = "409",
-                    description = "User already registered (email or username already exists)",
-                    content = @Content(
-                            mediaType = MediaType.APPLICATION_JSON_VALUE,
-                            schema = @Schema(implementation = ErrorDetailsDTO.class)
-                    )
-            )
-    })
+            description =
+                    "Creates a new user account based on the provided details in the request body.")
+    @ApiResponses(
+            value = {
+                @ApiResponse(
+                        responseCode = "201",
+                        description = "User successfully registered",
+                        content =
+                                @Content(
+                                        mediaType = MediaType.APPLICATION_JSON_VALUE,
+                                        schema = @Schema(implementation = UserDTO.class))),
+                @ApiResponse(
+                        responseCode = "400",
+                        description = "Invalid input data provided (e.g., validation errors)",
+                        content =
+                                @Content(
+                                        mediaType = MediaType.APPLICATION_JSON_VALUE,
+                                        schema = @Schema(implementation = ErrorDetailsDTO.class))),
+                @ApiResponse(
+                        responseCode = "409",
+                        description = "User already registered (email or username already exists)",
+                        content =
+                                @Content(
+                                        mediaType = MediaType.APPLICATION_JSON_VALUE,
+                                        schema = @Schema(implementation = ErrorDetailsDTO.class)))
+            })
     @PostMapping(
             value = "/register",
             consumes = MediaType.APPLICATION_JSON_VALUE,
-            produces = MediaType.APPLICATION_JSON_VALUE
-    )
+            produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<UserDTO> registerUser(@Valid @RequestBody CreateUserDTO createUserDTO) {
         return authService.registerUser(createUserDTO);
     }

@@ -82,8 +82,7 @@ public class UserService {
      */
     private void validateUsernameUniqueness(String username) {
         log.debug("Validating username uniqueness for: {}", username);
-        if (userRepository.existsByUsername(username))
-            throw new UsernameAlreadyExistsException();
+        if (userRepository.existsByUsername(username)) throw new UsernameAlreadyExistsException();
         log.debug("Username '{}' is unique.", username);
     }
 
@@ -94,8 +93,7 @@ public class UserService {
      */
     private void validateEmailUniqueness(String email) {
         log.debug("Validating email uniqueness for user.");
-        if (userRepository.existsByEmail(email))
-            throw new EmailAlreadyExistsException();
+        if (userRepository.existsByEmail(email)) throw new EmailAlreadyExistsException();
         log.debug("Email is unique for the provided user.");
     }
 

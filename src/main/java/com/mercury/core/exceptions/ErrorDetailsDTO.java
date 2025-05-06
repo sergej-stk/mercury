@@ -28,7 +28,7 @@ public final class ErrorDetailsDTO {
             title = "Timestamp",
             description =
                     "The date and time (with time zone offset) when the error response was"
-                        + " generated.",
+                            + " generated.",
             example = "2025-05-06T00:35:09.123+02:00")
     private OffsetDateTime timestamp;
 
@@ -44,7 +44,7 @@ public final class ErrorDetailsDTO {
             title = "Internal Error Code",
             description =
                     "A unique, application-specific, machine-readable code identifying the type of"
-                        + " error. Useful for programmatic error handling by clients.",
+                            + " error. Useful for programmatic error handling by clients.",
             example = "E-USER-0002")
     private String errorCode;
 
@@ -66,8 +66,8 @@ public final class ErrorDetailsDTO {
             name = "debugId",
             title = "Debug ID",
             description =
-                    "A unique identifier (UUID) assigned to this specific error instance, useful for"
-                            + " debugging and tracing purposes (e.g., correlating with logs).",
+                    "A unique identifier (UUID) assigned to this specific error instance, useful"
+                        + " for debugging and tracing purposes (e.g., correlating with logs).",
             example = "f81d4fae-7dec-11d0-a765-00a0c91e6bf6")
     private UUID debugId;
 }

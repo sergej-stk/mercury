@@ -3,6 +3,7 @@ package com.mercury.core.exceptions;
 import io.swagger.v3.oas.annotations.Hidden;
 
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -36,22 +37,23 @@ public class GlobalExceptionHandler {
         var debugId = UUID.randomUUID();
         var path = ((ServletWebRequest) request).getRequest().getRequestURI();
 
-        var result = new ErrorDetailsDTO()
-                .setTimestamp(OffsetDateTime.now())
-                .setStatus(errorCode.getStatus().value())
-                .setErrorCode(errorCode.getErrorCode())
-                .setMessage(errorCode.getMessage())
-                .setPath(path)
-                .setDebugId(debugId);
+        var result =
+                new ErrorDetailsDTO()
+                        .setTimestamp(OffsetDateTime.now())
+                        .setStatus(errorCode.getStatus().value())
+                        .setErrorCode(errorCode.getErrorCode())
+                        .setMessage(errorCode.getMessage())
+                        .setPath(path)
+                        .setDebugId(debugId);
 
         log.error(
-                "Handling UserDisplayException: Status='{}', Path='{}', ErrorCode='{}', DebugID='{}'",
+                "Handling UserDisplayException: Status='{}', Path='{}', ErrorCode='{}',"
+                    + " DebugID='{}'",
                 errorCode.getStatus(),
                 path,
                 errorCode.getErrorCode(),
                 debugId,
-                ex
-        );
+                ex);
 
         return ResponseEntity.status(result.getStatus()).body(result);
     }
@@ -63,22 +65,23 @@ public class GlobalExceptionHandler {
         var debugId = UUID.randomUUID();
         var path = ((ServletWebRequest) request).getRequest().getRequestURI();
 
-        var result = new ErrorDetailsDTO()
-                .setTimestamp(OffsetDateTime.now())
-                .setStatus(errorCode.getStatus().value())
-                .setErrorCode(errorCode.getErrorCode())
-                .setMessage(errorCode.getMessage())
-                .setPath(path)
-                .setDebugId(debugId);
+        var result =
+                new ErrorDetailsDTO()
+                        .setTimestamp(OffsetDateTime.now())
+                        .setStatus(errorCode.getStatus().value())
+                        .setErrorCode(errorCode.getErrorCode())
+                        .setMessage(errorCode.getMessage())
+                        .setPath(path)
+                        .setDebugId(debugId);
 
         log.error(
-                "Handling MethodArgumentNotValidException: Status='{}', Path='{}', ErrorCode='{}', DebugID='{}'",
+                "Handling MethodArgumentNotValidException: Status='{}', Path='{}', ErrorCode='{}',"
+                    + " DebugID='{}'",
                 errorCode.getStatus(),
                 path,
                 errorCode.getErrorCode(),
                 debugId,
-                ex
-        );
+                ex);
 
         return ResponseEntity.status(result.getStatus()).body(result);
     }
