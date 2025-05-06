@@ -21,23 +21,25 @@ import org.springframework.context.annotation.Configuration;
     info =
         @Info(
             title = "Mercury API",
-            summary = "General-purpose API framework for future application features.",
+            summary =
+                "API for the Mercury platform, focusing on employee management, HR processes, and"
+                    + " workflows.",
             description =
                 """
-                                ### Overview
-                                Mercury is a flexible backend platform currently under development.
-                                It is designed to provide a foundation for various functionalities such as user management,
-                                data exchange, and secure service interaction.
+                        ### Overview
+                        Mercury API provides the backend services for the Mercury platform.
+                        Currently, its primary focus is to support functionalities for **employee management** and the handling of related **HR processes and workflows**.
+                        This includes managing employee data, controlling onboarding/offboarding, administering absences, and facilitating other HR operations.
 
-                                ### Authentication
-                                Most endpoints are secured using Bearer Token authentication (JWT).
-                                A token can typically be obtained via an authentication endpoint (e.g., `/auth/login`).
+                        ### Authentication
+                        Most endpoints are secured using Bearer Token authentication (JWT).
+                        A token can typically be obtained via an authentication endpoint (e.g., `/auth/login`).
 
-                                ### Key Concepts
-                                * **User:** A general representation of an authenticated entity.
-                                * **Entity:** Placeholder for domain-specific resources.
-                                * **Operation:** Placeholder for interactions with data or processes.
-                                """,
+                        ### Key Concepts (Current Focus)
+                        * **Employee:** Represents an employee within the system (supersedes generic 'User' for core functions).
+                        * **Workflow:** A defined HR process (e.g., leave request, performance review).
+                        * **Action/Task:** A specific step within a workflow requiring interaction or completion.
+                        """,
             version = "1.0.0",
             termsOfService = "https://example.com/terms",
             contact =
