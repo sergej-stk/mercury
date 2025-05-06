@@ -57,8 +57,8 @@ public class CreateUserDTO {
             title = "Password",
             description =
                     "The desired password for the new user. Must meet complexity requirements"
-                        + " (e.g., min 8 characters, max 25 characters, contain uppercase, lowercase, digit, special"
-                        + " character).",
+                        + " (e.g., min 8 characters, max 25 characters, contain uppercase,"
+                        + " lowercase, digit, special character).",
             example = "S3cureP@ssw0rd!",
             requiredMode = Schema.RequiredMode.REQUIRED,
             format = "password",
