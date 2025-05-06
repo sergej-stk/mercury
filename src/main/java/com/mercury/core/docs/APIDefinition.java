@@ -51,29 +51,28 @@ import org.springframework.context.annotation.Configuration;
                                         name = "Apache 2.0",
                                         url = "https://www.apache.org/licenses/LICENSE-2.0.html"),
                         extensions = {
-                                @Extension(
-                                        name = "x-logo",
-                                        properties = {
-                                                @ExtensionProperty(
-                                                        name = "url",
-                                                        value =
-                                                                "https://raw.githubusercontent.com/sergej-stk/mercury/refs/heads/main/assets/logo.png",
-                                                        parseValue = true),
-                                                @ExtensionProperty(
-                                                        name = "altText",
-                                                        value = "Mercury API Logo",
-                                                        parseValue = true),
-                                                @ExtensionProperty(
-                                                        name = "backgroundColor",
-                                                        value = "#FFFFFF",
-                                                        parseValue = true),
-                                                @ExtensionProperty(
-                                                        name = "href",
-                                                        value = "https://mercury.sergejsteinsiek.com/",
-                                                        parseValue = true)
-                                        })
-                        }
-                ),
+                            @Extension(
+                                    name = "x-logo",
+                                    properties = {
+                                        @ExtensionProperty(
+                                                name = "url",
+                                                value =
+                                                        "https://raw.githubusercontent.com/sergej-stk/mercury/refs/heads/main/assets/logo.png",
+                                                parseValue = true),
+                                        @ExtensionProperty(
+                                                name = "altText",
+                                                value = "Mercury API Logo",
+                                                parseValue = true),
+                                        @ExtensionProperty(
+                                                name = "backgroundColor",
+                                                value = "#FFFFFF",
+                                                parseValue = true),
+                                        @ExtensionProperty(
+                                                name = "href",
+                                                value = "https://mercury.sergejsteinsiek.com/",
+                                                parseValue = true)
+                                    })
+                        }),
         servers = {
             @Server(url = "http://localhost:8080", description = "Development Server"),
             @Server(url = "https://api.mercury.example.com", description = "Production Server")
