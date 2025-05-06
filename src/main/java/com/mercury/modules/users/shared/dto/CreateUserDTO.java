@@ -19,8 +19,8 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 @AllArgsConstructor
 @Schema(
-        name = "CreateUserRequest",
-        title = "User Creation Request",
+        name = "CreateUser",
+        title = "User Create",
         description = "Data required to create a new user account.")
 public class CreateUserDTO {
     @Schema(
@@ -45,23 +45,25 @@ public class CreateUserDTO {
             example = "new.user@example.com",
             requiredMode = Schema.RequiredMode.REQUIRED,
             format = "email",
-            maxLength = 100)
+            minLength = 5,
+            maxLength = 254)
     @JsonProperty("email")
     @NotBlank(message = "Email is required")
     @Email(message = "Email should be a valid format")
-    @Size(max = 100, message = "Email must not exceed 100 characters")
+    @Size(max = 254, min = 5, message = "Email must not exceed 254 characters")
     private String email;
 
     @Schema(
             title = "Password",
             description =
                     "The desired password for the new user. Must meet complexity requirements"
-                        + " (e.g., min 8 characters, contain uppercase, lowercase, digit, special"
+                        + " (e.g., min 8 characters, max 25 characters, contain uppercase, lowercase, digit, special"
                         + " character).",
             example = "S3cureP@ssw0rd!",
             requiredMode = Schema.RequiredMode.REQUIRED,
             format = "password",
             minLength = 8,
+            maxLength = 25,
             accessMode = Schema.AccessMode.WRITE_ONLY)
     @JsonProperty("password")
     @NotBlank(message = "Password is required")

@@ -61,8 +61,8 @@ public class User {
 
     @NotBlank
     @Email
-    @Size(max = 100)
-    @Column(nullable = false, unique = true, length = 100)
+    @Size(min = 5, max = 254)
+    @Column(nullable = false, unique = true, length = 254)
     private String email;
 
     @NotBlank

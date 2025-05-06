@@ -13,6 +13,7 @@ import java.util.regex.Pattern;
  */
 public class PasswordStrengthValidator implements ConstraintValidator<PasswordStrength, String> {
     private static final int MIN_LENGTH = 8;
+    private static final int MAX_LENGTH = 25;
     private static final Pattern UPPERCASE_PATTERN = Pattern.compile("[A-Z]");
     private static final Pattern LOWERCASE_PATTERN = Pattern.compile("[a-z]");
     private static final Pattern DIGIT_PATTERN = Pattern.compile("[0-9]");
@@ -29,6 +30,10 @@ public class PasswordStrengthValidator implements ConstraintValidator<PasswordSt
         }
 
         if (password.length() < MIN_LENGTH) {
+            return false;
+        }
+
+        if (password.length() > MAX_LENGTH) {
             return false;
         }
 
