@@ -32,8 +32,5 @@ jobs:
       - name: Run Tests
         run: mvn -B test --file pom.xml -X
 
-      - name: Format Java Code
-        uses: axel-op/googlejavaformat-action@v4
-        with:
-          args: "--replace --aosp ."
-          commit-message: "style: auto-format Java code"
+      - name: Check Code Formatting (Spotless)
+        run: mvn spotless:check -B --file pom.xml
