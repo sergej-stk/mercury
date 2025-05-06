@@ -49,12 +49,6 @@ jobs:
           name: springboot-app
           path: ${{ steps.find_jar.outputs.jar_path }}
 
-      - name: Conventional Changelog Action
-        id: changelog
-        uses: TriPSs/conventional-changelog-action@v3.7.1
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Create GitHub Release
         id: create_release
         uses: actions/create-release@v1
