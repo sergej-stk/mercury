@@ -1,12 +1,15 @@
 package com.mercury.modules.auth.server.v1.services;
 
+import com.mercury.modules.auth.shared.dto.AuthRequestDTO;
+import com.mercury.modules.auth.shared.dto.AuthResponseDTO;
+import com.mercury.modules.auth.shared.dto.RefreshRequestDTO;
+import com.mercury.modules.auth.shared.dto.RefreshResponseDTO;
 import com.mercury.modules.users.server.v1.services.UserService;
 import com.mercury.modules.users.shared.dto.CreateUserDTO;
 import com.mercury.modules.users.shared.dto.UserDTO;
 import com.mercury.modules.users.shared.utils.UserUtils;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -21,11 +24,18 @@ public class AuthService {
    *
    * @param createUserDTO Data Transfer Object containing the details for the new user. Must be
    *     valid.
-   * @return A {@link ResponseEntity} with status {@link HttpStatus#CREATED} and the created {@link
-   *     UserDTO} in the body.
+   * @return A new created {@link UserDTO}
    */
-  public ResponseEntity<UserDTO> registerUser(@Valid CreateUserDTO createUserDTO) {
+  public UserDTO registerUser(@Valid CreateUserDTO createUserDTO) {
     var user = userService.createUser(createUserDTO);
-    return ResponseEntity.status(HttpStatus.CREATED).body(UserUtils.convertUserToUserDTO(user));
+    return UserUtils.convertUserToUserDTO(user);
+  }
+
+  public RefreshResponseDTO refreshToken(@Valid RefreshRequestDTO refreshRequestDTO) {
+    return new RefreshResponseDTO();
+  }
+
+  public AuthResponseDTO loginUser(@Valid AuthRequestDTO authRequestDTO) {
+    return new AuthResponseDTO();
   }
 }

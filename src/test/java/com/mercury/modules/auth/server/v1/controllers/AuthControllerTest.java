@@ -16,6 +16,7 @@ import com.mercury.core.exceptions.GlobalExceptionHandler;
 import com.mercury.modules.auth.server.v1.services.AuthService;
 import com.mercury.modules.users.shared.dto.CreateUserDTO;
 import com.mercury.modules.users.shared.dto.UserDTO;
+import com.mercury.modules.users.shared.exceptions.UsernameAlreadyExistsException;
 import java.util.UUID;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -28,9 +29,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.web.SecurityFilterChain;
@@ -82,8 +81,7 @@ class AuthControllerTest {
 
     var expectedUser = new UserDTO().setId(id).setUsername("testuser").setEmail("test@example.com");
 
-    when(authService.registerUser(any(CreateUserDTO.class)))
-        .thenReturn(ResponseEntity.status(HttpStatus.CREATED).body(expectedUser));
+    when(authService.registerUser(any(CreateUserDTO.class))).thenReturn(expectedUser);
 
     ResultActions result =
         mockMvc.perform(
@@ -127,7 +125,7 @@ class AuthControllerTest {
             .setPassword("Str0ngP@ssw0rd");
 
     when(authService.registerUser(any(CreateUserDTO.class)))
-        .thenReturn(ResponseEntity.status(HttpStatus.CONFLICT).<UserDTO>body(null));
+        .thenThrow(new UsernameAlreadyExistsException());
 
     ResultActions result =
         mockMvc.perform(
