@@ -39,7 +39,7 @@ You will need the following software installed on your system to run this projec
 * **PostgreSQL Database**
     * This application uses PostgreSQL as its database.
     * Ensure you have a running PostgreSQL instance. You can download it from [postgresql.org](https://www.postgresql.org/download/).
-    * You will also need to create a database and configure the connection details in `src/main/resources/application.properties` (or `application.yml`) as shown in the Installation section.
+    * You will also need to create a database and configure the connection details in `src/main/resources/application.properties` as shown in the Installation section.
     ```sh
     # Example for checking if PostgreSQL is running (Linux/macOS using psql)
     psql -U your_username -d your_database_name
