@@ -1,7 +1,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/sergej-stk/mercury">
-    <img src="https://raw.githubusercontent.com/sergej-stk/mercury/refs/heads/main/assets/logo.png" alt="Logo" width="200" height="200">
+    <img src="assets/logo.png" alt="Logo" width="200" height="200">
   </a>
 
 <h3 align="center">Mercury API</h3>
