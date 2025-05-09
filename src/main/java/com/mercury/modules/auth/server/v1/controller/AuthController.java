@@ -65,7 +65,7 @@ public class AuthController {
   }
 
   @Operation(
-      summary = "Authenticate user and generate access and refresh tokens",
+      summary = "Login user",
       description =
           "Authenticates a user with their credentials (password grant type) and returns access and"
               + " refresh tokens.")
@@ -97,7 +97,7 @@ public class AuthController {
                     schema = @Schema(implementation = ErrorDetailsDTO.class)))
       })
   @PostMapping(
-      value = "/login",
+      value = "/oauth2/login",
       consumes = MediaType.APPLICATION_JSON_VALUE,
       produces = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<AuthResponseDTO> loginUser(
@@ -135,7 +135,7 @@ public class AuthController {
                     schema = @Schema(implementation = ErrorDetailsDTO.class)))
       })
   @PostMapping(
-      value = "/refresh",
+      value = "/oauth2/refresh",
       consumes = MediaType.APPLICATION_JSON_VALUE,
       produces = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<RefreshResponseDTO> refreshToken(
