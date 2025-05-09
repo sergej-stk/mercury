@@ -128,7 +128,16 @@ public class UserService {
     return result;
   }
 
+  /**
+   * Retrieves a user by their public UUID. If no user is found, throws {@link
+   * UserNotFoundException}.
+   *
+   * @param id The public UUID of the user.
+   * @return The {@link User} entity corresponding to the given UUID.
+   * @throws UserNotFoundException if no user with the given public ID exists.
+   */
   public User getUserByPublicId(UUID id) {
+    log.debug("Attempting to fetch user with publicId: {}", id);
     return userRepository.findByPublicId(id).orElseThrow(UserNotFoundException::new);
   }
 }
