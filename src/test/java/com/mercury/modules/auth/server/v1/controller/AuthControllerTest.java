@@ -1,4 +1,4 @@
-package com.mercury.modules.auth.server.v1.controllers;
+package com.mercury.modules.auth.server.v1.controller;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.never;

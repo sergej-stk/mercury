@@ -1,4 +1,4 @@
-package com.mercury.modules.auth.server.v1.controllers;
+package com.mercury.modules.auth.server.v1.controller;
 
 import com.mercury.core.exceptions.ErrorDetailsDTO;
 import com.mercury.modules.auth.server.v1.services.AuthService;

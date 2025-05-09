@@ -21,7 +21,8 @@ public enum ErrorCode {
       HttpStatus.CONFLICT,
       "E-USER-0002",
       "User credentials already in use",
-      "Username already in use");
+      "Username already in use"),
+  USER_NOT_FOUND(HttpStatus.NOT_FOUND, "E-USER-0003", "User not found", "User not found");
 
   private final HttpStatus status;
   private final String errorCode;

@@ -4,10 +4,12 @@ import com.mercury.modules.users.dbo.entities.User;
 import com.mercury.modules.users.dbo.repositories.UserRepository;
 import com.mercury.modules.users.shared.dto.CreateUserDTO;
 import com.mercury.modules.users.shared.exceptions.EmailAlreadyExistsException;
+import com.mercury.modules.users.shared.exceptions.UserNotFoundException;
 import com.mercury.modules.users.shared.exceptions.UsernameAlreadyExistsException;
 import com.mercury.modules.users.shared.validation.configurations.DisplayIdProperties;
 import jakarta.transaction.Transactional;
 import java.security.SecureRandom;
+import java.util.UUID;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import lombok.RequiredArgsConstructor;
@@ -124,5 +126,9 @@ public class UserService {
         result.getId());
 
     return result;
+  }
+
+  public User getUserByPublicId(UUID id) {
+    return userRepository.findByPublicId(id).orElseThrow(UserNotFoundException::new);
   }
 }
