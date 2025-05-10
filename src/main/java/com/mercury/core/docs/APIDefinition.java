@@ -11,8 +11,8 @@ import io.swagger.v3.oas.annotations.info.Info;
 import io.swagger.v3.oas.annotations.info.License;
 import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import io.swagger.v3.oas.annotations.servers.Server;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springdoc.core.models.GroupedOpenApi;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -78,22 +78,6 @@ import org.springframework.context.annotation.Configuration;
       @Server(url = "http://localhost:8080", description = "Development Server"),
       @Server(url = "https://api.mercury.example.com", description = "Production Server")
     },
-    tags = {
-      @Tag(
-          name = "Authentication",
-          description = "Authentication and token management.",
-          externalDocs =
-              @ExternalDocumentation(
-                  description = "Find out more",
-                  url = "https://github.com/sergej-stk/mercury")),
-      @Tag(
-          name = "Users",
-          description = "Operations related to user accounts.",
-          externalDocs =
-              @ExternalDocumentation(
-                  description = "Find out more",
-                  url = "https://github.com/sergej-stk/mercury"))
-    },
     externalDocs =
         @ExternalDocumentation(
             description = "GitHub Repository",
@@ -109,8 +93,19 @@ import org.springframework.context.annotation.Configuration;
             + " 'Bearer {token}'.",
     paramName = "Authorization")
 public class APIDefinition {
+  private final OpenApiLocalizationHeader openApiLocalizationHeader;
+
+  @Autowired
+  public APIDefinition(OpenApiLocalizationHeader openApiLocalizationHeader) {
+    this.openApiLocalizationHeader = openApiLocalizationHeader;
+  }
+
   @Bean
   public GroupedOpenApi apiV1() {
-    return GroupedOpenApi.builder().group("v1").pathsToMatch("/v1/**").build();
+    return GroupedOpenApi.builder()
+        .group("v1")
+        .pathsToMatch("/v1/**")
+        .addOperationCustomizer(openApiLocalizationHeader.customizeAcceptLanguageHeader())
+        .build();
   }
 }

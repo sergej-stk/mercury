@@ -4,6 +4,7 @@ import com.mercury.core.exceptions.ErrorDetailsDTO;
 import com.mercury.modules.users.server.v1.services.UserService;
 import com.mercury.modules.users.shared.dto.UserDTO;
 import com.mercury.modules.users.shared.utils.UserUtils;
+import io.swagger.v3.oas.annotations.ExternalDocumentation;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -19,7 +20,13 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 @RestController
 @RequestMapping("/v1/users")
-@Tag(name = "Users")
+@Tag(
+    name = "Users",
+    description = "Operations related to user accounts.",
+    externalDocs =
+        @ExternalDocumentation(
+            description = "Find out more",
+            url = "https://github.com/sergej-stk/mercury"))
 @AllArgsConstructor
 public class UserController {
   private final UserService userService;

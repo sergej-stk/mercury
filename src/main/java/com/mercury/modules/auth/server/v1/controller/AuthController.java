@@ -8,6 +8,7 @@ import com.mercury.modules.auth.shared.dto.RefreshRequestDTO;
 import com.mercury.modules.auth.shared.dto.RefreshResponseDTO;
 import com.mercury.modules.users.shared.dto.CreateUserDTO;
 import com.mercury.modules.users.shared.dto.UserDTO;
+import io.swagger.v3.oas.annotations.ExternalDocumentation;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -24,7 +25,13 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 @RestController
 @RequestMapping("/v1/auth")
-@Tag(name = "Authentication")
+@Tag(
+    name = "Authentication",
+    description = "Authentication and token management.",
+    externalDocs =
+        @ExternalDocumentation(
+            description = "Find out more",
+            url = "https://github.com/sergej-stk/mercury"))
 @AllArgsConstructor
 public class AuthController {
   private final AuthService authService;
