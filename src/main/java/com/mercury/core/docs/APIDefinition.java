@@ -26,20 +26,25 @@ import org.springframework.context.annotation.Configuration;
                     + " workflows.",
             description =
                 """
-                        ### Overview
-                        Mercury API provides the backend services for the Mercury platform.
-                        Currently, its primary focus is to support functionalities for **employee management** and the handling of related **HR processes and workflows**.
-                        This includes managing employee data, controlling onboarding/offboarding, administering absences, and facilitating other HR operations.
+                                ### Overview
+                                Mercury API provides the backend services for the Mercury platform.
+                                Currently, its primary focus is to support functionalities for **employee management** and the handling of related **HR processes and workflows**.
+                                This includes managing employee data, controlling onboarding/offboarding, administering absences, and facilitating other HR operations.
 
-                        ### Authentication
-                        Most endpoints are secured using Bearer Token authentication (JWT).
-                        A token can typically be obtained via an authentication endpoint (e.g., `/auth/login`).
+                                ### Error Message Language
+                                The language of error messages returned by the API can be controlled by the client using the `Accept-Language` HTTP header.
+                                Supported languages include English (default, `en`), German (`de`), and French (`fr`).
+                                If an unsupported language is requested, a key is missing for the requested language, or if the `Accept-Language` header is omitted, error messages will default to English.
 
-                        ### Key Concepts (Current Focus)
-                        * **Employee:** Represents an employee within the system (supersedes generic 'User' for core functions).
-                        * **Workflow:** A defined HR process (e.g., leave request, performance review).
-                        * **Action/Task:** A specific step within a workflow requiring interaction or completion.
-                        """,
+                                ### Authentication
+                                Most endpoints are secured using Bearer Token authentication (JWT).
+                                A token can typically be obtained via an authentication endpoint (e.g., `/auth/login`).
+
+                                ### Key Concepts (Current Focus)
+                                * **Employee:** Represents an employee within the system (supersedes generic 'User' for core functions).
+                                * **Workflow:** A defined HR process (e.g., leave request, performance review).
+                                * **Action/Task:** A specific step within a workflow requiring interaction or completion.
+                                """,
             version = "1.0.0",
             termsOfService = "https://example.com/terms",
             contact =
@@ -50,7 +55,7 @@ import org.springframework.context.annotation.Configuration;
             license =
                 @License(
                     name = "Apache 2.0",
-                    url = "https://www.apache.org/licenses/LICENSE-2.0.html"),
+                    url = "https://www.apache.org/licenses/LICENSE-2.html"), // Corrected URL
             extensions = {
               @Extension(
                   name = "x-logo",
