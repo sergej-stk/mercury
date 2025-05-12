@@ -87,7 +87,7 @@ jobs:
 
       - name: Build and push Docker image (version tag)
         id: push_version_image
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: .
           push: true
@@ -96,7 +96,7 @@ jobs:
 
       - name: Build and push Docker image (latest tag)
         id: push_latest_image
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: .
           push: true
