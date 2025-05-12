@@ -105,7 +105,7 @@ jobs:
 
       - name: Generate artifact attestation (version tag)
         if: ${{ steps.push_version_image.outputs.digest }}
-        uses: actions/attest-build-provenance@v1
+        uses: actions/attest-build-provenance@v2
         with:
           subject-name: ghcr.io/${{ github.repository_owner }}/mercury
           subject-digest: ${{ steps.push_version_image.outputs.digest }}
@@ -113,7 +113,7 @@ jobs:
 
       - name: Generate artifact attestation (latest tag)
         if: ${{ steps.push_latest_image.outputs.digest }}
-        uses: actions/attest-build-provenance@v1
+        uses: actions/attest-build-provenance@v2
         with:
           subject-name: ghcr.io/${{ github.repository_owner }}/mercury
           subject-digest: ${{ steps.push_latest_image.outputs.digest }}
