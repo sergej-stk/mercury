@@ -44,7 +44,7 @@ jobs:
           echo "jar_path=$jar_filepath" >> $GITHUB_OUTPUT
 
       - name: Upload JAR file as artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: springboot-app
           path: ${{ steps.find_jar.outputs.jar_path }}
